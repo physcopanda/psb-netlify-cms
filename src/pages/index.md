@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Beautiful pianos for everybody
-image: /img/button-create.jpg
+image: /img/banner-jungle.jpg
 heading: Keep calm and carry on playing!
 subheading: Dedicated to sustaining a musical tradition
 mainpitch:
