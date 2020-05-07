@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
-title: Beautiful Pianos for Everybody
+title: Beautiful pianos for everybody
 image: /img/fullsizerender-29.jpg
 heading: Keep calm and carry on playing!
-subheading: Dedicated to Sustaining a Musical Tradition
+subheading: Dedicated to sustaining a musical tradition
 mainpitch:
   title: The Piano Shop Bath
   description: >
