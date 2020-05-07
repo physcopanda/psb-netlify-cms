@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Beautiful pianos for everybody
-image: /img/bosendorfer170_5.jpg
+image: /img/chinoiserie-detail-3.jpg
 heading: Keep calm and carry on playing!
 subheading: Dedicated to sustaining a musical tradition
 mainpitch:
