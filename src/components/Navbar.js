@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import logo from '../img/thepianoshopbath.svg'
+import Progress from '../components/Progress'
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -32,6 +33,12 @@ const Navbar = class extends React.Component {
     )
   }
 
+  handleClick = (ev) => {
+    if (ev.keyCode === 13) {
+      this.toggleHamburger()
+    }
+  }
+
   render() {
     return (
       <nav
@@ -42,13 +49,16 @@ const Navbar = class extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+              <img src={logo} alt="ThePianoShopBath" style={{ width: '88px' }} />
             </Link>
             {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
               onClick={() => this.toggleHamburger()}
+              onKeyDown={(ev) => this.handleClick(ev)}
+              tabIndex="0"
+              role="button"
             >
               <span />
               <span />
@@ -90,6 +100,7 @@ const Navbar = class extends React.Component {
             </div>
           </div>
         </div>
+        <Progress/>
       </nav>
     )
   }
