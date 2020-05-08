@@ -1,14 +1,36 @@
 @import "~bulma/sass/utilities/initial-variables"
-
+@import "transforms"
 // Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
+$sea-mist: #2d3a42
+$sea-mist-invert: #fff
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: $sea-mist
+$primary-invert: $sea-mist-invert
 $body-color: #333
 $black: #2b2523
+
+.navbar::before
+  content: ""
+  position: fixed
+  top: 0
+  left: 0
+  background-color: transparentize($primary, 0.8)
+  background-blend-mode: multiply
+  height: 5px
+  width: 100%
+
+.progressbar
+  background-color: lighten($primary, 20%)
+  background-blend-mode: multiply
+
+.navbar::before, .progressbar
+  opacity: 0
+  transition-property: opacity
+  transition-duration: 3s
+  transition-delay: 0.5s
+
+.scroll .progressbar, .scroll .navbar::before
+  opacity: 1
 
 .navbar .navbar-menu
   box-shadow:none !important
@@ -51,6 +73,12 @@ $black: #2b2523
     justify-content: center
     align-items: center
 
+    h1,h2,h3,h4,h5,h6,h7
+      background-color: $primary
+      color: $primary-invert
+      box-shadow: 0.5rem 0 0 $primary, 0-05rem 0 0 $primary
+      padding: 1rem
+
 .btn
     display: inline-block
     padding: 12px 16px 10px
@@ -88,9 +116,9 @@ footer.footer
 $menu-item-color: $white-ter
 $menu-item-hover-color: $black !important
 $menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert
+$menu-item-active-color: $sea-mist-invert
+$menu-item-active-background-color: $sea-mist-invert
+$menu-list-border-left: 1px solid $sea-mist-invert
 $menu-label-color: $white-ter
 
 
@@ -114,14 +142,19 @@ $menu-label-color: $white-ter
 
 // blog roll
 .blog-list-item.is-featured
-  background-color: #d6400033;
+  background-color: #d6400033
 .blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
+  display: flex
+  margin-bottom: 1em
 .blog-list-item .featured-thumbnail
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
-
+  flex-basis: 35%
+  margin: 0 1.5em 0 0
+.is-pad-small
+  padding: 0.25rem
+.is-pad-medium
+  padding: 0.5rem
+.is-bad-large
+  padding: 1rem
 
 @import "~bulma"
 
@@ -129,12 +162,12 @@ $menu-label-color: $white-ter
 // responsiveness
 +tablet-only
   .blog-list-item .featured-thumbnail
-    flex-basis: 50%;
+    flex-basis: 50%
 
 +mobile
   .blog-list-item header
     display: block
   .blog-list-item .featured-thumbnail
-    text-align: center;
-    max-width: 70%;
-    margin: 0 0 1em;
+    text-align: center
+    max-width: 70%
+    margin: 0 0 1em
