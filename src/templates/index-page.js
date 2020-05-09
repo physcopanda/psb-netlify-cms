@@ -5,6 +5,7 @@ import '../components/all.sass'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import BackgroundImage from 'gatsby-background-image'
 
 export const IndexPageTemplate = ({
   image,
@@ -16,16 +17,13 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <div
-      className="full-width-image margin-top-0 background-zoom-in background-fade-in"
+    <BackgroundImage
+      Tag="div"
+      className="full-width-image margin-top-0"
       id="feature"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `center`,
-        //backgroundAttachment: `fixed`,
-      }}
+      fluid={image.childImageSharp.fluid}
+      backgroundPosition={`25% 25%`}
+      //backgroundAttachment={`fixed`}
     >
       <div
         style={{
@@ -48,7 +46,7 @@ export const IndexPageTemplate = ({
           {subheading}
         </h3>
       </div>
-    </div>
+    </BackgroundImage>
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
@@ -144,9 +142,9 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image {
+        image{
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1920, quality: 80) {
               ...GatsbyImageSharpFluid_tracedSVG
             }
           }
@@ -163,7 +161,7 @@ export const pageQuery = graphql`
             image {
               childImageSharp {
                 fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid_tracedSVG
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
