@@ -22,8 +22,11 @@ export const IndexPageTemplate = ({
       className="full-width-image margin-top-0"
       id="feature"
       fluid={image.childImageSharp.fluid}
-      backgroundPosition={`25% 25%`}
-      //backgroundAttachment={`fixed`}
+      backgroundPosition={`50% 25%`}
+      backgroundAttachment={`fixed`}
+      style={{
+        transition: 'opacity 0.5s ease-in'
+      }}
     >
       <div
         style={{
@@ -36,12 +39,12 @@ export const IndexPageTemplate = ({
         }}
       >
         <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-pad-small"
+          className="has-text-weight-medium is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-pad-small font-feature"
         >
           {title}
         </h1>
         <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen is-pad-small"
+          className="has-text-weight-medium is-size-5-mobile is-size-5-tablet is-size-4-widescreen is-pad-small font-feature"
         >
           {subheading}
         </h3>
