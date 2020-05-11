@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
+import twitter from '../img/social/twitter.svg'
+import facebook from '../img/social/facebook.svg'
+import youtube from '../img/social/youtube.svg'
+import instagram from '../img/social/instagram.svg'
+import soundcloud from '../img/social/soundcloud.svg'
 import logo from '../img/thepianoshopbath.svg'
 import Progress from '../components/Progress'
 
@@ -89,12 +93,52 @@ const Navbar = class extends React.Component {
             <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                href="https://www.facebook.com/thepianoshopbath"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <span className="icon">
-                  <img src={github} alt="Github" />
+                  <img src={facebook} alt="Facebook" />
+                </span>
+              </a>
+              <a
+                  className="navbar-item"
+                  href="https://twitter.com/PianoShopBath"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={twitter} alt="Twitter" />
+                </span>
+              </a>
+              <a
+                  className="navbar-item"
+                  href="https://www.youtube.com/user/ThePianoShopBath"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={youtube} alt="Youtube" />
+                </span>
+              </a>
+              <a
+                  className="navbar-item"
+                  href="https://www.instagram.com/thepianoshopbath/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={instagram} alt="Instagram" />
+                </span>
+              </a>
+              <a
+                  className="navbar-item"
+                  href="https://soundcloud.com/user-241599092"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={soundcloud} alt="Soundcloud" />
                 </span>
               </a>
             </div>

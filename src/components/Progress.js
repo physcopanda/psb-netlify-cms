@@ -16,20 +16,33 @@ class Progress extends React.Component {
     constructor() {
         super()
         this.ref = createRef()
+        this.state = {
+            scrollTop: 0
+        }
     }
 
     scroll = () => {
         const scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+        const body = document.getElementsByTagName('body').item(0)
         const bodyHeight = document.documentElement.scrollHeight
         const windowHeight = window.innerHeight || document.documentElement.clientHeight
         this.ref.current.style.width = (100*scrollTop/(bodyHeight - windowHeight)).toString() + '%'
         if(scrollTop>0){
-            if( ! document.getElementsByTagName('body').item(0).classList.contains('scroll')) {
-                document.getElementsByTagName('body').item(0).classList.add('scroll')
+            if( ! body.classList.contains('scroll')) {
+                body.classList.add('scroll')
             }
         } else {
-            document.getElementsByTagName('body').item(0).classList.remove('scroll')
+           body.classList.remove('scroll')
         }
+        if(scrollTop > this.state.scrollTop) {
+            body.classList.remove('up')
+            body.classList.add('down')
+        } else {
+            body.classList.remove('down')
+            body.classList.add('up')
+        }
+        // finally write the scroll into state for comparison on next scroll
+        this.setState({scrollTop: scrollTop})
     }
 
     render() {
