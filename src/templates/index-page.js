@@ -33,43 +33,58 @@ export class IndexPageTemplate extends React.Component {
   }
 
   render() {
+
+    const inner = <div
+        style={{
+          display: 'flex',
+          height: '150px',
+          lineHeight: '1',
+          justifyContent: 'space-around',
+          alignItems: 'left',
+          flexDirection: 'column',
+        }}
+    >
+      <h1
+          className="has-text-weight-normal is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-pad-small font-feature"
+      >
+        {this.props.title}
+      </h1>
+      <h3
+          className="has-text-weight-normal is-size-5-mobile is-size-4-tablet is-size-3-widescreen is-pad-small font-feature"
+      >
+        {this.props.subheading}
+      </h3>
+    </div>
+
     return (
         <div>
-          <BackgroundImage
-              Tag="div"
-              className="full-width-image margin-top-0 background-zoom-in"
-              id="feature"
-              ref={this.ref}
-              durationFadeIn={500}
-              fluid={this.props.image.childImageSharp.fluid}
-              style={{
-                backgroundAttachment: `fixed`,
-                backgroundSize: `120%`,
-              }}
-
-          >
-            <div
+          {!!this.props.image.childImageSharp ?
+              <BackgroundImage
+                  Tag="div"
+                  className="full-width-image margin-top-0 background-zoom-in"
+                  id="feature"
+                  ref={this.ref}
+                  durationFadeIn={500}
+                  fluid={this.props.image.childImageSharp.fluid}
+                  style={{
+                    backgroundAttachment: `fixed`,
+                    backgroundSize: `120%`,
+                  }}
+              >
+                {inner}
+              </BackgroundImage>
+              :
+              <div
+                className="full-width-image margin-top-0 background-zoom-in"
+                id="feature"
+                ref={this.ref}
                 style={{
-                  display: 'flex',
-                  height: '150px',
-                  lineHeight: '1',
-                  justifyContent: 'space-around',
-                  alignItems: 'left',
-                  flexDirection: 'column',
+                  backgroundImage: `url(${this.props.image})`,
                 }}
-            >
-              <h1
-                  className="has-text-weight-medium is-size-3-mobile is-size-2-tablet is-size-1-widescreen is-pad-small font-feature"
               >
-                {this.props.title}
-              </h1>
-              <h3
-                  className="has-text-weight-medium is-size-5-mobile is-size-4-tablet is-size-3-widescreen is-pad-small font-feature"
-              >
-                {this.props.subheading}
-              </h3>
-            </div>
-          </BackgroundImage>
+                {inner}
+              </div>
+          }
 
           <section className="section section--gradient">
             <div className="container">

@@ -70,7 +70,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Linden Hill`,
+            family: `IM Fell English`,
             variants: [`400`]
           },
         ]
