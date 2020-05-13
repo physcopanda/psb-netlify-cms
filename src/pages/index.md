@@ -2,6 +2,7 @@
 templateKey: index-page
 title: Beautiful pianos for everybody
 image: /img/yamaha-u3_3-1.jpg
+presentation: home
 heading: Keep calm and carry on playing!
 subheading: Dedicated to sustaining a musical tradition
 mainpitch:
