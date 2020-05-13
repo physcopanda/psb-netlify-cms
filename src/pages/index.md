@@ -4,6 +4,19 @@ title: Beautiful pianos for everybody
 image: /img/yamaha-u3_3-1.jpg
 heading: Keep calm and carry on playing!
 subheading: Dedicated to sustaining a musical tradition
+slides:
+  - image: /img/banner-jungle.jpg
+    heading: Design pianos
+    button: Make
+    URL: ""
+  - image: /img/bosendorfer170_5.jpg
+    heading: Grand pianos
+    button: Browse
+    URL: ""
+  - image: /img/colour-pop-banner.jpg
+    heading: Colour painted pianos
+    button: Make
+    URL: ""
 mainpitch:
   title: The Piano Shop Bath
   description: >
@@ -64,4 +77,5 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
+presentation: home
 ---
