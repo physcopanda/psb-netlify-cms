@@ -3,10 +3,8 @@
 .down #feature
   transition: opacity 0.125s ease-in
 .background-zoom-in, .background-zoom-in::before, .background-zoom-in::after
-  animation: zoom-in 2s cubic-bezier(0,0,0.005,1) 0.75s 1 forwards
+  animation: zoom-in 2s cubic-bezier(0,0,0.05,1) 0.75s 1 forwards
 @keyframes zoom-in
-  0%
-    background-size: 120%
   100%
-    background-size: 100%
+    transform: scale(1,1)
 

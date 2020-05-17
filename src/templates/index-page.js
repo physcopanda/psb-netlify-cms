@@ -5,10 +5,15 @@ import '../components/all.sass'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import Slides from '../components/Slides'
 import BackgroundImage from 'gatsby-background-image'
 
 export class IndexPageTemplate extends React.Component {
   constructor(props) {
+    // change svg image date now!
+    const fgcol = encodeURIComponent(props.image.colors.darkVibrant);
+    const bgcol = encodeURIComponent(props.image.colors.lightVibrant);
+    props.image.childImageSharp.fluid.tracedSVG = props.image.childImageSharp.fluid.tracedSVG.replace("fill='white'", "fill='"+fgcol+"'").replace("fill='%23f0f'", "fill='"+bgcol+"'")
     super(props);
     this.ref = createRef()
     this.state = {
@@ -68,7 +73,8 @@ export class IndexPageTemplate extends React.Component {
                   fluid={this.props.image.childImageSharp.fluid}
                   style={{
                     backgroundAttachment: `fixed`,
-                    backgroundSize: `120%`,
+                    backgroundSize: `cover`,
+                    transform: `scale(1.2,1.2)`
                   }}
               >
                 {inner}
@@ -85,7 +91,10 @@ export class IndexPageTemplate extends React.Component {
                 {inner}
               </div>
           }
-
+          <Slides
+              duration={8000}
+              slides={this.props.slides}
+          />
           <section className="section section--gradient">
             <div className="container">
               <div className="section">
@@ -145,6 +154,7 @@ IndexPageTemplate.propTypes = {
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
   description: PropTypes.string,
+  slides: PropTypes.array,
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
@@ -152,7 +162,6 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-
   return (
     <Layout>
       <IndexPageTemplate
@@ -163,6 +172,7 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        slides={frontmatter.slides}
       />
     </Layout>
   )
@@ -183,15 +193,47 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image{
+        image {
           childImageSharp {
-            fluid(maxWidth: 1920, quality: 80) {
+            fluid(
+              maxWidth: 1920, 
+              quality: 80, 
+              traceSVG: { 
+                background: "#f0f",
+                color: "#fff" 
+              }
+            ) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
+          }
+          colors {
+            ...GatsbyImageColors
           }
         }
         heading
         subheading
+        slides {
+          URL
+          button
+          heading
+          image {
+            childImageSharp {
+              fluid(
+                maxWidth: 1920, 
+                quality: 80
+                traceSVG: { 
+                  background: "#f0f",
+                  color: "#fff" 
+                }  
+              ) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+            colors {
+              ...GatsbyImageColors
+            }
+          }
+        }
         mainpitch {
           title
           description
@@ -202,7 +244,7 @@ export const pageQuery = graphql`
             image {
               childImageSharp {
                 fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
