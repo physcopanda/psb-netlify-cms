@@ -63,7 +63,7 @@ export class IndexPageTemplate extends React.Component {
 
     return (
         <div>
-          {!!this.props.image.childImageSharp ?
+          {/*{!!this.props.image.childImageSharp ?
               <BackgroundImage
                   Tag="div"
                   className="full-width-image margin-top-0 background-zoom-in"
@@ -90,10 +90,13 @@ export class IndexPageTemplate extends React.Component {
               >
                 {inner}
               </div>
-          }
+          }*/}
           <Slides
-              duration={8000}
+              holdTime={3000}
+              transitTime={500}
+              traceTime={1000}
               slides={this.props.slides}
+              id="feature"
           />
           <section className="section section--gradient">
             <div className="container">
@@ -226,7 +229,14 @@ export const pageQuery = graphql`
                   color: "#fff" 
                 }  
               ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                tracedSVG
+                base64
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
               }
             }
             colors {
