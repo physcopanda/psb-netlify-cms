@@ -17,7 +17,7 @@ slides:
     heading: Colour painted pianos
     button: Make
     URL: ""
-  - image: /img/img_20200522_112644.jpg
+  - image: /img/img_20200522_112527.jpg
     heading: Upright Pianos
     button: Browse
     URL: ""
