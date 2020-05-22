@@ -17,7 +17,7 @@ slides:
     heading: Colour painted pianos
     button: Make
     URL: ""
-  - image: /img/img_20200522_112527.jpg
+  - image: /img/c.bechstein_2-600x400.jpg
     heading: Upright Pianos
     button: Browse
     URL: ""
