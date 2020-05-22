@@ -6,14 +6,16 @@ import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import Slides from '../components/Slides'
-import BackgroundImage from 'gatsby-background-image'
 
 export class IndexPageTemplate extends React.Component {
   constructor(props) {
-    // change svg image date now!
-    const fgcol = encodeURIComponent(props.image.colors.darkVibrant);
-    const bgcol = encodeURIComponent(props.image.colors.lightVibrant);
-    props.image.childImageSharp.fluid.tracedSVG = props.image.childImageSharp.fluid.tracedSVG.replace("fill='white'", "fill='"+fgcol+"'").replace("fill='%23f0f'", "fill='"+bgcol+"'")
+    console.log(props)
+    if(props.image.colors) {
+      // modify the svg colours to use slide image prominent colours
+      const fgcol = encodeURIComponent(props.image.colors.darkVibrant);
+      const bgcol = encodeURIComponent(props.image.colors.lightVibrant);
+      props.image.childImageSharp.fluid.tracedSVG = props.image.childImageSharp.fluid.tracedSVG.replace("fill='white'", "fill='" + fgcol + "'").replace("fill='%23f0f'", "fill='" + bgcol + "'")
+    }
     super(props);
     this.ref = createRef()
     this.state = {
@@ -39,7 +41,7 @@ export class IndexPageTemplate extends React.Component {
 
   render() {
 
-    const inner = <div
+    /*const inner = <div
         style={{
           display: 'flex',
           height: '150px',
@@ -59,7 +61,7 @@ export class IndexPageTemplate extends React.Component {
       >
         {this.props.subheading}
       </h3>
-    </div>
+    </div>*/
 
     return (
         <div>
@@ -92,9 +94,9 @@ export class IndexPageTemplate extends React.Component {
               </div>
           }*/}
           <Slides
-              holdTime={3000}
+              holdTime={5000}
               transitTime={500}
-              traceTime={1000}
+              traceTime={500}
               slides={this.props.slides}
               id="feature"
           />

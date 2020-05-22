@@ -7,4 +7,15 @@
 @keyframes zoom-in
   100%
     transform: scale(1,1)
+// onload for feature zoom / fade up
+#feature
+  animation: feature .3s cubic-bezier(.1,.82,.25,1)
+  transform-origin: center
 
+@keyframes feature
+  0%
+    transform: scale(1.4)
+    opacity: 0
+  100%
+    transform: scale(1)
+    opacity: 1
