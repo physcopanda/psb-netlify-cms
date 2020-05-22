@@ -19,6 +19,8 @@ slides:
     URL: ""
   - image: /img/img_20200522_112644.jpg
     heading: Upright Pianos
+    button: Browse
+    URL: ""
 mainpitch:
   title: The Piano Shop Bath
   description: >
