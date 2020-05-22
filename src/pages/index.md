@@ -21,6 +21,9 @@ slides:
     heading: Upright Pianos
     button: Browse
     URL: ""
+  - image: /img/orange_bentley_1.jpg
+    youtube: Colour painted pianos
+    URL: ""
 mainpitch:
   title: The Piano Shop Bath
   description: >
