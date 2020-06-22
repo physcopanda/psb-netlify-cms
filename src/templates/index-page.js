@@ -1,4 +1,4 @@
-import React, {createRef} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import '../components/all.sass'
@@ -9,15 +9,15 @@ import Slides from '../components/Slides'
 
 export class IndexPageTemplate extends React.Component {
   constructor(props) {
-    console.log(props)
+    console.log(props.image.colors)
     if(props.image.colors) {
       // modify the svg colours to use slide image prominent colours
-      const fgcol = encodeURIComponent(props.image.colors.darkVibrant);
-      const bgcol = encodeURIComponent(props.image.colors.lightVibrant);
+      const fgcol = encodeURIComponent(props.image.colors.vibrant);
+      const bgcol = encodeURIComponent(props.image.colors.muted);
       props.image.childImageSharp.fluid.tracedSVG = props.image.childImageSharp.fluid.tracedSVG.replace("fill='white'", "fill='" + fgcol + "'").replace("fill='%23f0f'", "fill='" + bgcol + "'")
     }
     super(props);
-    this.ref = createRef()
+
     this.state = {
       scroll: 0
     }
@@ -94,9 +94,10 @@ export class IndexPageTemplate extends React.Component {
               </div>
           }*/}
           <Slides
-              holdTime={5000}
+              holdTime={8000}
               transitTime={500}
-              traceTime={500}
+              traceTime={0}
+              fadeTime={3000}
               slides={this.props.slides}
               id="feature"
           />

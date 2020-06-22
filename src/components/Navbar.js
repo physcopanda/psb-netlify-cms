@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import twitter from '../img/social/twitter.svg'
-import facebook from '../img/social/facebook.svg'
-import youtube from '../img/social/youtube.svg'
-import instagram from '../img/social/instagram.svg'
-import soundcloud from '../img/social/soundcloud.svg'
-import logo from '../img/thepianoshopbath.svg'
+import { ReactComponent as TwitterLogo } from '../img/social/twitter.svg'
+import { ReactComponent as FacebookLogo } from '../img/social/facebook.svg'
+import { ReactComponent as YouTubeLogo  } from '../img/social/youtube.svg'
+import { ReactComponent as InstagramLogo } from '../img/social/instagram.svg'
+import { ReactComponent as SoundcloudLogo } from '../img/social/soundcloud.svg'
+import { ReactComponent as MyLogo } from '../img/thepianoshopbath-white.svg'
 import Progress from '../components/Progress'
 
 const Navbar = class extends React.Component {
@@ -46,14 +46,14 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <nav
-        className="navbar is-transparent"
+        className="navbar is-fixed-top"
         role="navigation"
         aria-label="main-navigation"
       >
         <div className="container">
-          <div className="navbar-brand">
+          <div className="navbar-brand" style={{flexGrow: 1}}>
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="ThePianoShopBath" style={{ width: '88px' }} />
+              <MyLogo alt="ThePianoShopBath" style={{ width: '108px' }} />
             </Link>
             {/* Hamburger menu */}
             <div
@@ -73,7 +73,7 @@ const Navbar = class extends React.Component {
             id="navMenu"
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
-            <div className="navbar-start has-text-centered">
+            <div className="navbar-start has-text-centered" style={{marginRight: 0, marginLeft: 'auto'}}>
               <Link className="navbar-item" to="/about">
                 About
               </Link>
@@ -81,14 +81,20 @@ const Navbar = class extends React.Component {
                 Products
               </Link>
               <Link className="navbar-item" to="/blog">
+                Design
+              </Link>
+              <Link className="navbar-item" to="/blog">
+                Services
+              </Link>
+              <Link className="navbar-item" to="/blog">
                 Blog
               </Link>
               <Link className="navbar-item" to="/contact">
                 Contact
               </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
+              {/*<Link className="navbar-item" to="/contact/examples">*/}
+              {/*  Form Examples*/}
+              {/*</Link>*/}
             </div>
             <div className="navbar-end has-text-centered">
               <a
@@ -98,7 +104,7 @@ const Navbar = class extends React.Component {
                 rel="noopener noreferrer"
               >
                 <span className="icon">
-                  <img src={facebook} alt="Facebook" />
+                  <FacebookLogo alt="Facebook" />
                 </span>
               </a>
               <a
@@ -108,7 +114,7 @@ const Navbar = class extends React.Component {
                   rel="noopener noreferrer"
               >
                 <span className="icon">
-                  <img src={twitter} alt="Twitter" />
+                  <TwitterLogo />
                 </span>
               </a>
               <a
@@ -118,7 +124,7 @@ const Navbar = class extends React.Component {
                   rel="noopener noreferrer"
               >
                 <span className="icon">
-                  <img src={youtube} alt="Youtube" />
+                  <YouTubeLogo alt="Youtube" />
                 </span>
               </a>
               <a
@@ -128,7 +134,7 @@ const Navbar = class extends React.Component {
                   rel="noopener noreferrer"
               >
                 <span className="icon">
-                  <img src={instagram} alt="Instagram" />
+                  <InstagramLogo alt="Instagram" />
                 </span>
               </a>
               <a
@@ -138,7 +144,7 @@ const Navbar = class extends React.Component {
                   rel="noopener noreferrer"
               >
                 <span className="icon">
-                  <img src={soundcloud} alt="Soundcloud" />
+                  <SoundcloudLogo alt="Soundcloud" />
                 </span>
               </a>
             </div>

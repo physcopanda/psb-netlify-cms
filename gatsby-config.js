@@ -60,6 +60,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-svgr',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
@@ -72,6 +73,7 @@ module.exports = {
         fonts: [
           {
             family: `IM Fell English`,
+            //family: `Source Serif Pro`,
             variants: [`400`]
           },
         ]
