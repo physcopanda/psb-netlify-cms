@@ -1,7 +1,10 @@
 import React, { createRef }  from 'react'
 import './all.sass'
+import {ThemeContext} from "../context/ThemeContext";
 
 class Progress extends React.Component {
+
+    static contextType = ThemeContext
 
     componentDidMount() {
         document.addEventListener('scroll', this.scroll, { capture: false, passive: true})
@@ -13,12 +16,9 @@ class Progress extends React.Component {
         window.removeEventListener('resize', this.scroll, { capture: false, passive: true})
     }
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.ref = createRef()
-        this.state = {
-            scrollTop: 0
-        }
     }
 
     scroll = () => {
@@ -34,7 +34,7 @@ class Progress extends React.Component {
         } else {
            body.classList.remove('scroll')
         }
-        if(scrollTop > this.state.scrollTop) {
+        if(scrollTop > this.context.scrollTop) {
             body.classList.remove('up')
             body.classList.add('down')
         } else {
@@ -42,7 +42,7 @@ class Progress extends React.Component {
             body.classList.add('up')
         }
         // finally write the scroll into state for comparison on next scroll
-        this.setState({scrollTop: scrollTop})
+        this.context.setScrollTop(scrollTop)
     }
 
     render() {
@@ -55,7 +55,7 @@ class Progress extends React.Component {
                 left: '0',
                 top: '0',
             }}
-    />
+        />
     }
 }
 

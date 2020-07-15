@@ -1,0 +1,22 @@
+.navbar::before
+  content: ""
+  position: fixed
+  top: 0
+  left: 0
+  background-color: transparentize($primary, 0.8)
+  background-blend-mode: multiply
+  height: 5px
+  width: 100%
+
+.progressbar
+  background-color: lighten($primary, 20%)
+  background-blend-mode: multiply
+
+.navbar::before, .progressbar
+  opacity: 0
+  transition-property: opacity
+  transition-duration: 3s
+  transition-delay: 0.5s
+
+.scroll .progressbar, .scroll .navbar::before
+  opacity: 1

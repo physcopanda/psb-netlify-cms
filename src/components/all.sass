@@ -1,6 +1,5 @@
 @import "~bulma/sass/utilities/initial-variables"
 @import "transforms"
-@import "slides"
 
 // Config vars
 $sea-mist: #2d3a42
@@ -11,31 +10,8 @@ $primary-invert: $sea-mist-invert
 $body-color: #333
 $black: #2b2523
 
-.navbar::before
-  content: ""
-  position: fixed
-  top: 0
-  left: 0
-  background-color: transparentize($primary, 0.8)
-  background-blend-mode: multiply
-  height: 5px
-  width: 100%
-
-.progressbar
-  background-color: lighten($primary, 20%)
-  background-blend-mode: multiply
-
-.navbar::before, .progressbar
-  opacity: 0
-  transition-property: opacity
-  transition-duration: 3s
-  transition-delay: 0.5s
-
-.scroll .progressbar, .scroll .navbar::before
-  opacity: 1
-
-.navbar .navbar-menu
-  box-shadow: none !important
+@import "progress"
+@import "navbar"
 
 .content .taglist
   list-style: none
@@ -47,6 +23,7 @@ $black: #2b2523
   flex-wrap: wrap
   justify-content: left
   align-items: center
+
   li
     padding: 0 2rem 1rem 0
     margin-bottom: 1.5rem
@@ -67,74 +44,21 @@ $black: #2b2523
   align-items: center
 
 .full-width-image
-    width: 100vw
-    height: 600px
-    background-size: cover
-    background-position: 50% 50%
-    display: flex
-    justify-content: center
-    align-items: center
+  width: 100vw
+  height: 600px
+  background-size: cover
+  background-position: 50% 50%
+  display: flex
+  justify-content: center
+  align-items: center
 
-    h1,h2,h3,h4,h5,h6,h7
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.25),0px 1px 2px rgba(0,0,0,0.25),-1px 1px 2px rgba(0,0,0,0.25),-1px 0px 2px rgba(0,0,0,0.25),-1px -1px 2px rgba(0,0,0,0.25),0px -1px 2px rgba(0,0,0,0.25),1px -1px 2px rgba(0,0,0,0.25),1px 0px 2px rgba(0,0,0,0.25)
-      color: #fff
-      padding: 1rem
-
-.btn
-    display: inline-block
-    padding: 12px 16px 10px
-    font-size: 18px
-    font-size: 1rem
-    line-height: 1.25
-    background-color: #fff
-    border-radius: .25rem
-    text-decoration: none
-    font-weight: 700
-    color: #CC3700
-    text-align: center
-    -webkit-box-shadow: inset 0 0 0 2px #CC3700
-    box-shadow: inset 0 0 0 2px #f40
-    -webkit-transition: all .15s ease
-    transition: all .15s ease
+  h1, h2, h3, h4, h5, h6, h7
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25), 0px 1px 2px rgba(0, 0, 0, 0.25), -1px 1px 2px rgba(0, 0, 0, 0.25), -1px 0px 2px rgba(0, 0, 0, 0.25), -1px -1px 2px rgba(0, 0, 0, 0.25), 0px -1px 2px rgba(0, 0, 0, 0.25), 1px -1px 2px rgba(0, 0, 0, 0.25), 1px 0px 2px rgba(0, 0, 0, 0.25)
+    color: #fff
+    padding: 1rem
 
 .margin-top-0
   margin-top: 0 !important
-
-.navbar.is-transparent
-  background-color: transparent !important
-
-.navbar-item .icon
-  color: transparentize($white, 0.3)
-  &:hover
-    color: $white
-
-.navbar-start
-  right: 0
-
-  .navbar-item
-    text-transform: uppercase
-    font-family: 'IM Fell English', serif
-    letter-spacing: 2.5px
-    padding: 0.25rem 1.25rem
-    &::after
-      display: block
-      content: ""
-      position: absolute
-      left: 0
-      bottom: 1.5em
-      margin: 0 45% -2px
-      height: 1px
-      width: 10%
-      opacity: 0
-      transition: all 0.3s
-
-  .navbar-item:hover
-    &::after
-      opacity: 1
-      background-color: $white
-      width: 40%
-      margin: 0 30% -2px
-      bottom: 2em
 
 // Override for use of svg's from https://simpleicons.org/
 .icon svg
@@ -142,60 +66,56 @@ $black: #2b2523
   height: 1.5rem
   fill: currentColor
 
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
+
 
 footer.footer
   padding: 3rem 0rem 0rem
   background-color: transparent
 
-//Menu overrides
-$menu-item-color: $white-ter
-$menu-item-hover-color: $black !important
-$menu-item-hover-background-color: $black
-$menu-item-active-color: $sea-mist-invert
-$menu-item-active-background-color: $sea-mist-invert
-$menu-list-border-left: 1px solid $sea-mist-invert
-$menu-label-color: transparentize($white-ter, 0.2)
-$navbar-item-color: transparentize($white-ter, 0.2)
-$navbar-height: 5.625rem
-$navbar-background-color: rgba(20, 20, 20, 0.3)
-$navbar-z: 150
-$navbar-fixed-z: $navbar-z
-$navbar-item-hover-background-color: transparent
-$navbar-item-hover-color: $white
+.hue-shift-180-saturate-3
+  filter: hue-rotate(180deg) saturate(3)
+
+
 
 .menu-label
   font-size: 1em !important
   text-align: left
+
 .menu-list
   list-style: none !important
   text-align: left
+
 .social
   padding: 2em
+
 .social a
-    padding: .5em .5em .3em .5em
-    border-radius: 1em
-    background-color: $white-ter
-    margin: .5em
-    width: 1em
-    height: 1em
-    vertical-align: middle
-    display: inline
+  padding: .5em .5em .3em .5em
+  border-radius: 1em
+  background-color: $white-ter
+  margin: .5em
+  width: 1em
+  height: 1em
+  vertical-align: middle
+  display: inline
 
 // blog roll
 .blog-list-item.is-featured
   background-color: #d6400033
+
 .blog-list-item header
   display: flex
   margin-bottom: 1em
+
 .blog-list-item .featured-thumbnail
   flex-basis: 35%
   margin: 0 1.5em 0 0
+
 .is-pad-small
   padding: 0.25rem
+
 .is-pad-medium
   padding: 0.5rem
+
 .is-bad-large
   padding: 1rem
 
@@ -203,21 +123,80 @@ $navbar-item-hover-color: $white
 @import "fonts"
 
 // responsiveness
++mobile
+  .has-dropdown
+    >.navbar-link
+      padding-left: 2.5em
+  .navbar-end
+    .navbar-item
+      margin: 0.5em
+      display: inline-block
+
 +tablet-only
   .blog-list-item .featured-thumbnail
     flex-basis: 50%
-
-+mobile
-  .blog-list-item header
-    display: block
-  .blog-list-item .featured-thumbnail
-    text-align: center
-    max-width: 70%
-    margin: 0 0 1em
-
 +desktop
   .navbar-brand a
     transform-origin: 50% 50%
-    transition: transform 300ms
-    &:hover
-      transform: scale(1.2) rotate(-0.1rad)
+    transition-duration: 300ms
+
+    &:hover, &:focus
+      //transform: scale(1.15) rotate(-0.1rad)
+      transform: scale(1.15) translateY(-0.25rem)
+
+  .navbar-end .navbar-item
+
+    transform-origin: 50% 50%
+    transition-duration: 300ms
+    color: transparentize($white, 0.3)
+
+    &:hover, &:focus
+      transition-duration: 100ms
+      color: $white
+      transform: scale(1.15) translateY(-0.25rem)
+
+  .navbar-start
+    right: 0
+
+    > a.navbar-item
+      text-transform: uppercase
+      font-family: 'IM Fell English', serif
+      letter-spacing: 2.5px
+      padding: 0.25rem 1.25rem
+
+      &::after
+        display: block
+        content: ""
+        position: absolute
+        left: 0
+        bottom: 1.5em
+        margin: 0 45% -2px
+        height: 1px
+        width: 10%
+        opacity: 0
+        transition: all 0.3s
+
+    > .navbar-item:hover, .navbar-item:focus
+      &:after
+        display: block
+        content: ""
+        opacity: 1
+        background-color: $white
+        width: 40%
+        margin: 0 30% -2px
+        bottom: 2em
+
+.navbar-dropdown
+  animation: navAnimOpen .2s ease-in-out
+
+@keyframes navAnimOpen
+  0%
+    display: none
+    opacity: 0
+
+  1%
+    display: block
+    opacity: 0
+  100%
+    opacity: 1
+

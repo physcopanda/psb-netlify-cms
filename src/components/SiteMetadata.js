@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const useSiteMetadata = () => {
-  const { site } = useStaticQuery(
+  const { site, allFile } = useStaticQuery(
     graphql`
       query SITE_METADATA_QUERY {
         site {
@@ -10,10 +10,23 @@ const useSiteMetadata = () => {
             description
           }
         }
+        allFile(
+          limit: 1
+          filter: {
+            name: { eq: "favicon" }
+            ext: { eq: ".svg" }
+            sourceInstanceName: { eq: "images" }
+            relativeDirectory: { eq: "" }
+          }
+        ) {
+          nodes {
+            publicURL
+          }
+        }
       }
     `
   )
-  return site.siteMetadata
+  return {site, allFile}
 }
 
 export default useSiteMetadata

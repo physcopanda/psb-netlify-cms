@@ -17,10 +17,9 @@ class Slide extends React.Component {
             }}
         >
             <h1
-                className="has-text-weight-normal is-size-2-mobile is-size-1-tablet is-size-0-widescreen is-pad-small font-feature"
+                className="has-text-weight-normal is-size-2-mobile is-size-1-tablet is-size-0-widescreen is-pad-small font-feature hue-shift-180-saturate-3"
                 style={{
                     color: this.props.slide.image.colors.lightVibrant,
-                    filter: 'hue-rotate(180deg) saturate(3)'
                 }}
             >
                 {this.props.slide.heading}
@@ -125,7 +124,6 @@ class Slides extends React.Component {
             // give our slides an index
             props.slides[i].index = i
             // if not in admin
-            console.log(props.slides[i].image.colors)
             if(props.slides[i].image.childImageSharp) {
                 // modify the svg colours to use slide image prominent colours
                 const fgcol = encodeURIComponent(props.slides[i].image.colors.darkMuted)
@@ -174,6 +172,7 @@ class Slides extends React.Component {
 
         // loaded is required to change state
         if( ! this.loadedTimes[this.index] ) return false
+
         switch(this.slideState){
             case 2:
                 if(deltaTime > this.props.traceTime + this.props.holdTime + this.props.transitTime) {

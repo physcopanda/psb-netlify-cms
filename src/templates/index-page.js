@@ -106,6 +106,24 @@ export class IndexPageTemplate extends React.Component {
               <div className="section">
                 <div className="columns">
                   <div className="column is-10 is-offset-1">
+                    <a className="button is-primary">
+                      Button
+                    </a>
+                    <a className="button is-link">
+                      Button
+                    </a>
+                    <a className="button is-info">
+                      Button
+                    </a>
+                    <a className="button is-success">
+                      Button
+                    </a>
+                    <a className="button is-warning">
+                      Button
+                    </a>
+                    <a className="button is-danger">
+                      Button
+                    </a>
                     <div className="content">
                       <div className="content">
                         <div className="tile">
